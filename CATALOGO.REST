@@ -1,0 +1,75 @@
+
+@dominio= http://localhost:3000
+@id = 67d3060768a32b72802d7f1f
+
+@pid = 67d3143eb084b8b75d03e41b
+
+
+# -------------------------
+    #    USUARIOS
+# -------------------------
+
+
+### Crear usuarios 
+POST {{dominio}}/api/v1/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "Candela Fos",
+    "email": "cande@gmail.com"
+}
+
+
+### Obtener usuarios 
+GET {{dominio}}/api/v1/usuarios
+
+
+### Obtener un usuario 
+GET {{dominio}}/api/v1/usuarios/{{id}}
+
+
+
+
+
+# -------------------------
+    #    PRODUCTOS
+# -------------------------
+
+
+### Crear usuarios 
+POST {{dominio}}/api/v1/productos
+Content-Type: application/json
+
+{
+    "nombre": "Cactus",
+    "precio": 9,
+    "descripcion": "Perfecto para aquellos que no quieren regar"
+}
+
+
+
+### Obtener productos 
+GET {{dominio}}/api/v1/productos
+
+
+
+
+### Obtener un producto 
+GET {{dominio}}/api/v1/productos/{{pid}}
+
+
+### Eliminar un producto 
+DELETE {{dominio}}/api/v1/productos/{{pid}}
+
+
+
+
+### Actualizar un producto 
+PUT {{dominio}}/api/v1/productos/{{pid}}
+Content-Type: application/json
+
+{
+    "nombre": "Cactus precioso",
+    "precio": 6,
+    "descripcion": "Perfecto para aquellos que no quieren regar"
+}
