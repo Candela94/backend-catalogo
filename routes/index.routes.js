@@ -5,6 +5,10 @@ import { getAllUsuarios, getUsuario, createUsuario, deleteUsuario } from '../con
 import { createProducto, getAllProductos, updateProducto, getProducto, deleteProducto } from '../controllers/productos.controller.js';
 
 
+import {  uploadImg } from '../middlewares/upload.middleware.js';
+
+import { uploadProductImg } from '../controllers/uploads.controller.js';
+
 const router = Router();
 
 // Listas para admin, cómoun admin puede acceder 
@@ -14,7 +18,7 @@ router.get("/usuarios", getAllUsuarios)
 // router.get("/compras", getAllCompras)
 
 
-//ANTES DE PROGRAMAR CONTROLLERS Y DEMAS, HAY QUE PLANIFICAR ESTO
+
 
 
 //crear items como admin
@@ -40,7 +44,7 @@ router.get("/usuarios", getAllUsuarios)
 router.get("/usuarios" , getAllUsuarios)
 
 // //obtener un usuario 
-router.get("/usuarios/:id" , )
+router.get("/usuarios/:id" , getUsuario)
 
 // //crear 
 router.post("/usuarios" , createUsuario)
@@ -74,7 +78,84 @@ router.delete("/productos/:pid" , deleteProducto)
 
 
 //Actualizar un producto
-router.put("/usuarios/:id" , updateProducto  )
+router.put("/productos/:pid" , updateProducto  )
+
+
+
+// ---------------------------------
+//            UPLOADS
+// ---------------------------------
+
+router.put("/productos/:id/imagen", uploadImg.single('imgprod') ,uploadProductImg) //ruta para subir una imagen 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router.post("/producto/upload", uploadImg.single('imgprod') ,   (req,res, next) => {
+
+
+//     try{
+
+//         //recibir imagen
+
+    
+//         if(!req.file){
+//             return res.status(400).json({
+//                 success: false, 
+//                 message: "No se ha proporcionado ninguna imagen"
+//             })
+//         }
+
+//         console.log(req.file);
+//         const imageUrl = `${BACKEND_URL}/uploads/${req.file.filename}`
+
+
+
+
+        
+//         //guardar "req.file.filename" en la base de datos 
+
+
+//         //responder al usuario
+
+
+
+//         return res.status(200).json({
+//             success:"ok",
+//             message:"Imagen subida con éxito :)",
+//             fileData: req.file,
+
+
+//             data:{  //info sobre la imagen
+//                 imageUrl: imageUrl,
+//                 peso:`${Math.round(req.file.size/1024)}`,
+//                 size:"500kb"
+//             }
+
+//         })
+
+
+
+//     } catch(e) {
+
+
+//         next(e)
+
+
+//     }
+
+
+
+// }); //ruta para subir imagen de producto 
 
 
 

@@ -47,7 +47,17 @@ const storage = multer.diskStorage({
 
 
 
+//filtro para archivos
+const fileFilter = (req, file, cb) => {
+    //comprobar el tipo de archivo
+    if(file.mimetype.startsWith('image/')) {
+        cb(null,true)
 
+
+    } else {
+        cb(new Error('El archivo debe ser una imagen válida'), false)
+    }
+}
 
 
 
@@ -55,6 +65,7 @@ const storage = multer.diskStorage({
 export const uploadImg = multer({
 
     storage: storage,
+    fileFilter: fileFilter,
     limits: {
         fileSize: 5* 1024*1024 //limitar ek upload a 5mb, ESTO ES OPCIONAL. EJEMPLOS DE LO QUE PODEMOS PONER 
     }

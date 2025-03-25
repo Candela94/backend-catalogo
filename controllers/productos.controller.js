@@ -111,7 +111,7 @@ export const deleteProducto = async (req, res, next) => {
 
 
 
-// Actualizar un usuario 
+// Actualizar un producto 
 export const updateProducto = async (req, res, next) => {
 
     
@@ -122,14 +122,19 @@ export const updateProducto = async (req, res, next) => {
 
     try {
 
-        const actualizado = await Alumno.findByIdAndUpdate(pid, 
+       
+
+        const actualizado = await Producto.findByIdAndUpdate(pid, 
             { 
                 nombre:nombre,
                 precio: precio,
-                descripcion: descripcion
+                descripcion: descripcion,
+               
+
 
             }, { new: true });
 
+        // actualizado.imageUrl = imageUrl;
         responseAPI.data = actualizado;
         responseAPI.msg = `Producto con id ${pid} ha sido actualizado con éxito`
         responseAPI.status = 'ok';

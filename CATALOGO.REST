@@ -69,7 +69,15 @@ PUT {{dominio}}/api/v1/productos/{{pid}}
 Content-Type: application/json
 
 {
-    "nombre": "Cactus precioso",
-    "precio": 6,
-    "descripcion": "Perfecto para aquellos que no quieren regar"
+   
+}
+
+
+
+### Subir imagen 
+PUT {{dominio}}/api/v1/productos/{{pid}}/imagen
+Content-Type: application/json
+
+{
+   
 }
