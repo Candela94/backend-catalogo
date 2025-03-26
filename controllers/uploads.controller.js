@@ -1,4 +1,4 @@
-
+import { BACKEND_URL } from "../config/config.js";
 
 export const uploadProductImg = async (req,res, next) => {
 

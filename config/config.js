@@ -5,6 +5,8 @@ dotenv.config();
 export const PORT = process.env.PORT || 3002;
 export const DOMAIN = process.env.DOMAIN || "http://localhost"
 
+export const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3002"
+
 
 
 export const DB_USER =  process.env.DB_USER || "candelafsg";
