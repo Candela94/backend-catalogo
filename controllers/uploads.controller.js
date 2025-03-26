@@ -28,9 +28,16 @@ export const uploadProductImg = async (req,res, next) => {
 
         
         //guardar "req.file.filename" en la base de datos 
-
+         const actualizado = await Producto.findByIdAndUpdate(pid, 
+                    { 
+                       imagen:req.file.filename
+                       
+        
+        
+                    }, { new: true });
 
         //responder al usuario
+
 
 
 
