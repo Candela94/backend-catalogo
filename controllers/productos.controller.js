@@ -122,6 +122,11 @@ export const updateProducto = async (req, res, next) => {
 
     try {
 
+        if (req.file) {
+            // Si se ha subido una imagen, actualiza el campo imagen
+            const imageUrl = `${BACKEND_URL}/uploads/${req.file.filename}`;
+            updatedData.imagen = req.file.filename;
+        }
        
 
         const actualizado = await Producto.findByIdAndUpdate(pid, 
